@@ -1,0 +1,77 @@
+$include-ie: false;
+$include-ff: true;
+$include-chrome: true;
+$include-safari: true;
+$include-opera: false;
+$compile-all: false;
+
+$base-color: #444444;
+$grid-header-background-color: #cccccc;
+$grid-header-background-gradient: color-stops(#f0f0f1, #fefefe);
+
+$include-default: false;
+
+body {
+    background: $base-color;
+}
+
+
+@import 'compass';
+@import 'ext4/default/all';
+
+@include extjs-panel-ui(
+    'intro_portlet',
+
+    $ui-header-font-size: 12px,
+    $ui-header-font-weight: bold,
+    $ui-header-color: #fff,
+    $ui-header-background-color: $base-color,
+    $ui-header-background-gradient: null,
+
+    $ui-border-color: #fff,
+    $ui-border-radius: 5px,
+    $ui-body-background-color: #fff,
+    $ui-body-font-size: 14px,
+
+    $panel-frame-padding: 0px
+);
+
+
+
+
+@include extjs-boundlist;
+@include extjs-button;
+@include extjs-btn-group;
+@include extjs-datepicker;
+@include extjs-colorpicker;
+@include extjs-menu;
+@include extjs-grid;
+@include extjs-form;
+@include extjs-form-field;
+@include extjs-form-fieldset;
+@include extjs-form-file;
+@include extjs-form-checkboxfield;
+@include extjs-form-checkboxgroup;
+@include extjs-form-triggerfield;
+@include extjs-form-htmleditor;
+@include extjs-panel;
+@include extjs-qtip;
+@include extjs-slider;
+@include extjs-progress;
+@include extjs-toolbar;
+@include extjs-window;
+@include extjs-messagebox;
+@include extjs-tabbar;
+@include extjs-tab;
+@include extjs-tree;
+@include extjs-drawcomponent;
+@include extjs-viewport;
+@include extjs-dragdrop;
+@include extjs-resizable;
+@include extjs-splitter;
+@include extjs-layout;
+@include extjs-tool;
+@include extjs-scroller;
+
+@include extjs-html;
+

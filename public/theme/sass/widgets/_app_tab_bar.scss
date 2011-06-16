@@ -1,0 +1,72 @@
+.no_overflow{
+    overflow:visible !important;
+    .x-box-layout-ct, .x-box-inner{
+        overflow:visible !important;
+    }
+}
+.x-tab-bar-app_tab_bar{
+    height:0px !important;
+    border: none !important;
+    .x-box-layout-ct, .x-box-inner{
+        overflow:visible !important;
+    }
+}
+
+.x-tab-bar-body-app_tab_bar{
+    margin-top:-32px;
+    z-index:10;
+    border:none;
+    .x-tab{
+
+        border:0px !important;
+        padding: 0 15px 0 20px;
+        color:#fff;
+        height:30px;
+        background:transparent;
+
+        @include box-shadow(rgba(0, 0, 0, 0), 0, -3px, 5px);
+        @include border-top-radius(2px);
+        @include transition-property(all);
+        @include transition-duration(0.5s);
+        @include opacity(.5);
+        button{
+            font-size:13px;
+            color:#fff;
+            height:30px;
+            font-weight:normal;
+            @include text-shadow(#000000, 0,0, 3px);
+        }
+        &:hover{
+            @include opacity(0.8);
+            @include box-shadow(rgba(0, 0, 0, 0.7), 0, -3px, 5px);
+        }
+    }
+    .x-tab-active{
+
+        background-color:$theme-color;
+        @include opacity(1);
+        @include box-shadow(rgba(0, 0, 0, 0.7), 0, -3px, 5px);
+        background-color: $theme_color;
+        background-image:-moz-linear-gradient(center top , rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), -moz-linear-gradient(left center , rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.1) 100%);
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, rgba(255, 255, 255, 0.1)), color-stop(100%, rgba(255, 255, 255, 0)) ),
+            -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(50%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.1)) );
+        &:hover{
+            background-image:-moz-linear-gradient(center top , rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), -moz-linear-gradient(left center , rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.1) 100%);
+            background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(255, 255, 255, 0)) ),
+                -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(50%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.1)) );
+            .button-close{
+                display:block;
+            }
+        }
+        button{
+            font-weight:bold;
+        }
+
+    }
+
+}
+
+.app_tabs{
+    overflow:visible !important;
+    border:0 !important;
+}

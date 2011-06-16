@@ -1,0 +1,48 @@
+.x-panel-editor_tabpanel{
+    background-color: $theme-color;
+    .x-tab-bar, .x-panel-body, .x-tab-bar-body{
+        background: $theme-color !important;
+
+
+    }
+
+    .x-panel-collapsed-placeholder, .x-panel-collapsed{
+    }
+
+    .x-tab-bar-body{
+        padding:0 !important;
+        border:0px;
+    }
+
+    .x-tab{
+        @include border-radius(5px);
+        background:#f1f1f1;
+        border:none !important;
+        top:2px !important;
+        button{
+            font-weight:normal;
+            color:#555;
+        }
+    }
+
+    .x-tab-active{
+        button{
+            font-weight:bold;
+            color:#000;
+        }
+    }
+
+    .code_output{
+        -moz-box-shadow:inset 0px -2px 20px rgba(0,0,0,0.3);
+        -webkit-box-shadow:inset 0px -2px 20px rgba(0,0,0,0.3);
+        .x-panel-body{
+            background: #fff !important;
+            -moz-box-shadow:inset 0px -2px 20px rgba(0,0,0,0.3);
+            -webkit-box-shadow:inset 0px -2px 20px rgba(0,0,0,0.3);
+        }
+    }
+
+
+
+}
+

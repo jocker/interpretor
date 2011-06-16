@@ -1,0 +1,25 @@
+development:
+  extjs_direct:
+    endpoint: /direct 
+  js_app:
+    endpoint: /packages
+    root_path: /vendor/js/src/packages
+  ssh:
+    host: 172.16.222.128
+    username: chris
+    password: chris
+
+
+production:
+
+
+
+
+test:
+  extjs_direct:
+    endpoint: /direct
+  js_app:
+    endpoint: /packages
+    root_path: /lib/js_app/src/packages
+
+

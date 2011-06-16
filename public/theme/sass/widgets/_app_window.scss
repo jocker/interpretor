@@ -1,0 +1,46 @@
+@include extjs-window-ui(
+        'app_window',
+        $ui-header-color: #fff,
+        $ui-background-color: $theme-color
+    );
+
+
+.x-window-body-app_window{
+
+        -moz-box-shadow:inset 0px -2px 20px rgba(0,0,0,0.3);
+        @include box-shadow(rgba(0,0,0,0.3), 0,-2px, 20px, 0px, true);
+
+}
+
+.x-window-app_window{
+background-color: $theme-color;
+@include linear-gradient(color-stops(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)));
+    margin:0 2px 2px 2px !important;
+    @include border-top-radius(5px);
+    @include box-shadow(rgba(0, 0, 0, 1), 0, 0, 20px);
+
+    .x-toolbar-footer{
+        background-color:$theme-color;
+    }
+}
+
+.x-window-header-app_window-horizontal{
+    background-color:$theme-color;
+background-image: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%),
+        -moz-linear-gradient(left , rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 50%,  rgba(0, 0, 0, 0.3) 100%);
+            background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(50%, rgba(255, 255, 255, 0.2)), color-stop(50%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0))),
+        -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, rgba(0, 0, 0, 0.3)), color-stop(50%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.3)));
+        padding:4px 0;
+}
+
+.x-window-body-app_window{
+    background-color:#fff;
+    border:none;
+    @include border-bottom-radius(3px);
+    margin:0 3px;
+
+}
+
+.x-window-header-text-app_window{
+    padding-left:10px;
+}

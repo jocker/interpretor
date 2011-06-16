@@ -1,0 +1,181 @@
+GIT
+  remote: git://github.com/benedikt/mongoid-tree
+  revision: 4f482d0d9e5f69ac47408de0dddb81689dfbe9f1
+  specs:
+    mongoid-tree (0.6.0)
+      mongoid (~> 2.0.0)
+
+GIT
+  remote: https://github.com/mongoid/mongoid.git
+  revision: 3de69311e0564f82f53cc50ed07f46a18969cb64
+  specs:
+    mongoid (2.0.2)
+      activemodel (~> 3.0)
+      mongo (~> 1.3)
+      tzinfo (~> 0.3.22)
+
+GIT
+  remote: https://github.com/plataformatec/devise.git
+  revision: 30f9da9d71640025f78f46f359e371fcd02add66
+  specs:
+    devise (1.4.0.dev)
+      bcrypt-ruby (~> 2.1.2)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.0.3)
+
+PATH
+  remote: vendor/gems/action_direct
+  specs:
+    action_direct (0.0.1)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    actionmailer (3.1.0.rc4)
+      actionpack (= 3.1.0.rc4)
+      mail (~> 2.3.0)
+    actionpack (3.1.0.rc4)
+      activemodel (= 3.1.0.rc4)
+      activesupport (= 3.1.0.rc4)
+      builder (~> 3.0.0)
+      erubis (~> 2.7.0)
+      i18n (~> 0.6)
+      rack (~> 1.3.0)
+      rack-cache (~> 1.0.1)
+      rack-mount (~> 0.8.1)
+      rack-test (~> 0.6.0)
+      sprockets (~> 2.0.0.beta.10)
+      tzinfo (~> 0.3.27)
+    activemodel (3.1.0.rc4)
+      activesupport (= 3.1.0.rc4)
+      bcrypt-ruby (~> 2.1.4)
+      builder (~> 3.0.0)
+      i18n (~> 0.6)
+    activerecord (3.1.0.rc4)
+      activemodel (= 3.1.0.rc4)
+      activesupport (= 3.1.0.rc4)
+      arel (~> 2.1.1)
+      tzinfo (~> 0.3.27)
+    activeresource (3.1.0.rc4)
+      activemodel (= 3.1.0.rc4)
+      activesupport (= 3.1.0.rc4)
+    activesupport (3.1.0.rc4)
+      multi_json (~> 1.0)
+    addressable (2.2.6)
+    arel (2.1.1)
+    bcrypt-ruby (2.1.4)
+    bson (1.3.1)
+    bson_ext (1.3.1)
+    builder (3.0.0)
+    chunky_png (1.2.0)
+    compass (0.11.3)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    daemons (1.1.3)
+    diff-lcs (1.1.2)
+    em-hiredis (0.1.0)
+      hiredis (~> 0.3.0)
+    em-http-request (0.3.0)
+      addressable (>= 2.0.0)
+      escape_utils
+      eventmachine (>= 0.12.9)
+    erubis (2.7.0)
+    escape_utils (0.2.3)
+    eventmachine (0.12.10)
+    faye (0.6.1)
+      em-hiredis (>= 0.0.1)
+      em-http-request (>= 0.2)
+      eventmachine (~> 0.12.0)
+      json (>= 1.0)
+      rack (>= 1.0)
+      thin (~> 1.2)
+    fssm (0.2.7)
+    hike (1.0.0)
+    hiredis (0.3.2)
+    i18n (0.6.0)
+    json (1.5.1)
+    mail (2.3.0)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime-types (1.16)
+    mongo (1.3.1)
+      bson (>= 1.3.1)
+    multi_json (1.0.3)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-ssh (2.1.4)
+    orm_adapter (0.0.5)
+    polyglot (0.3.1)
+    rack (1.3.0)
+    rack-cache (1.0.2)
+      rack (>= 0.4)
+    rack-mount (0.8.1)
+      rack (>= 1.0.0)
+    rack-ssl (1.3.2)
+      rack
+    rack-test (0.6.0)
+      rack (>= 1.0)
+    rails (3.1.0.rc4)
+      actionmailer (= 3.1.0.rc4)
+      actionpack (= 3.1.0.rc4)
+      activerecord (= 3.1.0.rc4)
+      activeresource (= 3.1.0.rc4)
+      activesupport (= 3.1.0.rc4)
+      bundler (~> 1.0)
+      railties (= 3.1.0.rc4)
+    railties (3.1.0.rc4)
+      actionpack (= 3.1.0.rc4)
+      activesupport (= 3.1.0.rc4)
+      rack-ssl (~> 1.3.2)
+      rake (>= 0.8.7)
+      rdoc (~> 3.4)
+      thor (~> 0.14.6)
+    rake (0.9.2)
+    rdoc (3.6.1)
+    rspec (2.6.0)
+      rspec-core (~> 2.6.0)
+      rspec-expectations (~> 2.6.0)
+      rspec-mocks (~> 2.6.0)
+    rspec-core (2.6.4)
+    rspec-expectations (2.6.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.6.0)
+    rspec-rails (2.6.1)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      railties (~> 3.0)
+      rspec (~> 2.6.0)
+    sass (3.1.2)
+    sprockets (2.0.0.beta.10)
+      hike (~> 1.0)
+      rack (~> 1.0)
+      tilt (!= 1.3.0, ~> 1.1)
+    thin (1.2.11)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
+    thor (0.14.6)
+    tilt (1.3.2)
+    treetop (1.4.9)
+      polyglot (>= 0.3.1)
+    tzinfo (0.3.27)
+    warden (1.0.4)
+      rack (>= 1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  action_direct!
+  bson_ext (>= 1.3.1)
+  compass
+  devise!
+  faye
+  mongoid!
+  mongoid-tree!
+  net-scp
+  net-ssh
+  rails (= 3.1.0.rc4)
+  rspec-rails (>= 2.6.0)

@@ -1,0 +1,9 @@
+Ext.define("Crs.app.data.models.<%= class_name %>", {
+    extend: "Ext.data.Model",
+    fields: [
+<%= attributes.map{|attr| "\t\t {name: '#{attr.name}', type: '#{ attr.type }'}" }.join(",\n") %>
+    ]
+});
+
+
+

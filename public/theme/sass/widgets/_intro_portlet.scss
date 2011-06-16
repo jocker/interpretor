@@ -1,0 +1,48 @@
+@include extjs-panel-ui(
+    'intro_portlet',
+    $ui-header-font-size: 13px,
+    $ui-header-font-weight: bold,
+    $ui-header-color: #fff,
+    $ui-header-background-gradient: null,
+
+
+    $ui-body-font-size: 14px,
+
+    $ui-header-background-color: $theme-color,
+
+    $ui-body-background-color: $theme-color,
+    $ui-base-color: #fff
+
+
+);
+
+.x-panel-intro_portlet{
+    border: 1px solid rgba(255,255,255,0.5);
+    @include transition-property(opacity);
+    @include transition-duration(0.2s);
+    @include transition-timing-function(ease-in);
+    @include opacity(0.5);
+    @include border-radius(5px);
+    &:hover{
+        @include box-shadow(rgba(0, 0, 0, 0.5), 0, 0, 10px);
+        @include opacity(1);
+        .x-panel-header-intro_portlet-horizontal{
+            background-image: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%),
+        -moz-linear-gradient(left , rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 50%,  rgba(0, 0, 0, 0.3) 100%);
+            background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(50%, rgba(255, 255, 255, 0.2)), color-stop(50%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0))),
+        -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, rgba(0, 0, 0, 0.3)), color-stop(50%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.3)));
+        }
+    }
+}
+
+.x-panel-header-intro_portlet-horizontal{
+    border:none !important;
+    @include text-shadow(rgba(0,0,0,0.5), 1px, 1px, 1px);
+}
+
+.x-panel-body-intro_portlet{
+    background:#fff;
+    @include box-shadow(rgba(0,0,0,0.3), 0,-2px, 20px, 0px, true);
+    margin:0 2px 2px 2px !important;
+    @include border-bottom-radius(3px);
+}

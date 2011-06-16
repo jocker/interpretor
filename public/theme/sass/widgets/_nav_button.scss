@@ -1,0 +1,51 @@
+@include extjs-button-ui(
+    "nav_button-small"
+);
+
+.x-btn-nav_button-small{
+    @include scale(0.4);
+    @include transition-property(all);
+    @include transition-duration(0.1s);
+    @include transition-timing-function(ease-in);
+    width:48px;
+    height:48px;
+    &:hover, &.x-btn-menu-active{
+       @include scale(0.7);
+        @include text-shadow(rgba(0,0,0,0.5), 2px, 2px, 2px);
+        margin-top:-5px;
+        .x-btn-inner{
+            @include opacity(1);
+        }
+
+    }
+    em, div{
+        display:block;
+        width:100%;
+        height:100%;
+
+    }
+    div{
+        position:relative;
+    }
+    .x-btn-icon{
+        top:0;
+        left:0;
+        right:0;
+        botton:0;
+        position:absolute;
+    }
+    .x-btn-inner{
+        @include opacity(0);
+        @include transition-property(all);
+        @include transition-duration(0.1s);
+        @include transition-timing-function(ease-in);
+        position:absolute;
+        top:100%;
+        width:100%;
+        text-align:center;
+        color:#fff;
+        padding-top:10px;
+        font-size:16px;
+    }
+}
+

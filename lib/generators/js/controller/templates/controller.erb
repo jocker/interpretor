@@ -1,0 +1,22 @@
+Ext.define("Crs.app.controllers.<%= @name.camelize %>",{
+    extend:"Fwk.app.controllers.Base",
+    mixins:{
+        url_helper: "Fwk.app.views.Base"
+    },
+<%= actions.map do |action|
+        <<-STR
+\n\t\t #{action}: function(){
+\t\t
+\t}
+STR
+end.map(&:strip).join(",\n\n") %><%= actions.length > 0 ? "," : "" %>
+
+
+    handleViewRendered: function(view_id, view){
+        Fwk.info("handleViewRendered not implemented for Crs.app.controllers.<%= @name.camelize %>")
+    },
+
+    handleViewDestroyed: function(view_id, view){
+        Fwk.info("handleViewDestroyed not implemented for Crs.app.controllers.<%= @name.camelize %>")
+    }
+})

@@ -1,0 +1,34 @@
+<%- items = actions.map do |action|
+<<STR
+self.viewContainerFor("#{action}",{},{})
+STR
+end %>
+Ext.define("Crs.app.views.layouts.<%= name.camelize %>",{
+    requires:["Fwk.app.views.layouts.Base"],
+    extend:"Ext.Container",
+    mixins:{
+        url_helper: "Fwk.app.views.Base"
+    },
+
+    initComponent: function(){
+        var self = this;
+        (new Fwk.app.views.layouts.Base()).init(this);
+        Ext.apply(self,{
+            layout:"card",
+            items: [<%= items.map(&:strip).join(",\n\t\t\t\t")+"\n" %>]
+        })
+
+        self.callParent(arguments)
+
+    },
+
+    switchViewContainer: function(from_view, to_view, callback){
+        var self = this
+        throw new Error("switchView not implemented for Crs.app.views.layouts.<%= name.camelize %>")
+    },
+
+    viewContainerMissing: function(view_id){
+        var self = this
+        throw new Error("viewContainerMissing not implemented for Crs.app.views.layouts.<%= name.camelize %>")
+    }
+})

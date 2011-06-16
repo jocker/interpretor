@@ -1,0 +1,84 @@
+.app_header{
+    @include linear-gradient(color-stops(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)));
+    border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+.app_footer{
+    border-top:1px solid rgba(255,255,255,0.45);
+}
+
+.lock_mask{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:1000000;
+    background:rgba(0,0,0,0);
+    width:100%;
+    height:100%;
+    cursor:wait;
+}
+
+
+.progress_bar{
+    -moz-box-shadow:inset 0px 3px 5px rgba(0,0,0,0.4);
+    @include box-shadow(rgba(0,0,0,0.4), 0px,3px, 5px, 0px, true);
+
+    @include border-radius(5px);
+    background:rgba(255,255,255,0.2);
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.1);
+    .progress, .progress_animation, .progress_bevel{
+        @include border-radius(5px);
+        width:100%;
+        height:100%;
+        position:absolute;
+        top:0;
+        left:0;
+    }
+    .progress{
+        @include transition-property(all);
+        @include transition-duration(0.4s);
+        @include transition-timing-function(ease-in-out);
+        background-color:#4f770d;;
+
+    }
+    .progress_animation{
+        @include opacity(0.3);
+        background-image: url(/images/progress_bar.gif);
+    }
+    .progress_bevel{
+        background-image:-moz-linear-gradient(center top , rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%),
+            -moz-linear-gradient(left center , rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.2) 100%);
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, rgba(255, 255, 255, 0.3)), color-stop(100%, rgba(255, 255, 255, 0)) ),
+                    -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0.2)) );
+
+    }
+}
+
+.x-mask{
+    background: rgba(0,0,0,0.5);
+}
+
+.message_details{
+    .message_body{
+        strong{
+            font-weight:bold;
+        }
+        .message_meta{
+            background:#ccc;
+            padding:5px 10px;
+            margin-bottom:10px
+        }
+    }
+}
+
+
+.new_message_row{
+    .x-grid-cell-inner{
+        font-weight:bold !important;
+    }
+
+}

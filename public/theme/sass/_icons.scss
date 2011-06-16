@@ -1,0 +1,39 @@
+@mixin language_icon($icon_name){
+    background: url("/theme/images/icons/large/"+$icon_name+".png")
+}
+
+.icon_ruby{
+    @include language_icon("ruby")
+}
+
+.icon_cplus{
+    @include language_icon("cplus")
+}
+
+.icon_csharp{
+    @include language_icon("csharp")
+}
+
+.icon_java{
+    @include language_icon("java")
+}
+
+.icon_node{
+    @include language_icon("node")
+}
+
+.icon_perl{
+    @include language_icon("perl")
+}
+
+.icon_php{
+    @include language_icon("php")
+}
+
+.icon_python{
+    @include language_icon("python")
+}
+
+.icon_home{
+    @include language_icon("home")
+}

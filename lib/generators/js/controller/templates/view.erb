@@ -1,0 +1,15 @@
+Ext.define("Crs.app.views.<%= "#{name}.#{@action.camelize}" %>",{
+    extend:"Ext.Panel",
+    mixins:{
+        base: "Fwk.app.views.Base"
+    },
+
+    initComponent: function(){
+        var self = this
+        Ext.apply(self,{
+            title:"<%= @action.camelize %>"
+        })
+
+        self.callParent(arguments)
+    }
+})
