@@ -19,6 +19,9 @@ admin.managed_channels.each do |channel|
   user.send_channel_join_request channel
 end
 
+10.times do |i|
+  Channel.create(:name => "Sample channel #{i}", :owner_id => admin.id)
+end
 
 
 
@@ -35,7 +38,11 @@ CodeLanguage.create(:key => "node", :name => "Node js", :icon => "icon_node", :c
 CodeLanguage.create(:key => "perl", :name => "Perl", :icon => "icon_perl", :class_name => "Perl")
 
 CodeLanguage.all.each do |language|
+  language.inc(:uses_count, rand(100))
   SampleCode.create(:name => "Sample #{language.name} code", :content => "Sample #{language.name} code", :code_language => language)
   admin.user_codes.create(:name => "User #{language.name} code", :content => "User #{language.name} code", :code_language => language)
 end
 
+Channel.all.each do |channel|
+  channel.inc(:subscribers_count, rand(100))
+end

@@ -43,7 +43,8 @@ module Interpreter
         end
       rescue Timeout::Error
         @error = "Execution expired"
-      rescue
+      rescue Exception => e
+        puts e.message
         @error = "Something wrong happened"
       end
 

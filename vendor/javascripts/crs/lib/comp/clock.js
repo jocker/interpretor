@@ -10,7 +10,7 @@ Ext.define("Crs.lib.comp.Clock", {
             y: dim/2-1,
             range: dim/2-6
         }
-/*
+/* */
         this.paper = Raphael(this.el.dom, dim, dim)
 
         Ext.get(this.paper.canvas).setStyle({
@@ -29,7 +29,7 @@ Ext.define("Crs.lib.comp.Clock", {
         this.createArms()
 
         this.start()
-*/
+/* */
 
     },
 

@@ -9723,14 +9723,21 @@ body {
   background-image: -moz-linear-gradient(center top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%), -moz-linear-gradient(left, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.3) 100%);
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(50%, rgba(255, 255, 255, 0.2)), color-stop(50%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, rgba(0, 0, 0, 0.3)), color-stop(50%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.3)));
 }
+/* line 37, ../sass/widgets/_intro_portlet.scss */
+.x-panel-intro_portlet .x-splitter {
+  -moz-box-shadow: black 0px 0px 3px inset;
+  -webkit-box-shadow: black 0px 0px 3px inset;
+  -o-box-shadow: black 0px 0px 3px inset;
+  box-shadow: black 0px 0px 3px inset;
+}
 
-/* line 38, ../sass/widgets/_intro_portlet.scss */
+/* line 42, ../sass/widgets/_intro_portlet.scss */
 .x-panel-header-intro_portlet-horizontal {
   border: none !important;
   text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 1px;
 }
 
-/* line 43, ../sass/widgets/_intro_portlet.scss */
+/* line 47, ../sass/widgets/_intro_portlet.scss */
 .x-panel-body-intro_portlet {
   background: #fff;
   -moz-box-shadow: inset 0 -2px 20px 0px rgba(0, 0, 0, 0.3);
@@ -10361,9 +10368,49 @@ body {
   background-image: -moz-linear-gradient(center top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%), -moz-linear-gradient(left, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.3) 100%);
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(50%, rgba(255, 255, 255, 0.2)), color-stop(50%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, rgba(0, 0, 0, 0.3)), color-stop(50%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.3)));
   padding: 4px 0;
+  overflow: visible !important;
+}
+/* line 35, ../sass/widgets/_app_window.scss */
+.x-window-header-app_window-horizontal .x-box-inner, .x-window-header-app_window-horizontal .x-window-header-body-app_window-horizontal {
+  overflow: visible !important;
+}
+/* line 38, ../sass/widgets/_app_window.scss */
+.x-window-header-app_window-horizontal .x-tool {
+  width: 18px;
+  height: 14px;
+  top: -4px !important;
+  left: auto !important;
+  right: 5px !important;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-top: none;
+  -moz-box-shadow: 0 0 1px rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.4);
+  -o-box-shadow: 0 0 1px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.4);
+  -moz-border-radius-bottomleft: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -o-border-bottom-left-radius: 3px;
+  -ms-border-bottom-left-radius: 3px;
+  -khtml-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -o-border-bottom-right-radius: 3px;
+  -ms-border-bottom-right-radius: 3px;
+  -khtml-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 49, ../sass/widgets/_app_window.scss */
+.x-window-header-app_window-horizontal .x-tool:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+/* line 53, ../sass/widgets/_app_window.scss */
+.x-window-header-app_window-horizontal .x-tool img {
+  background: transparent;
 }
 
-/* line 36, ../sass/widgets/_app_window.scss */
+/* line 59, ../sass/widgets/_app_window.scss */
 .x-window-body-app_window {
   background-color: #fff;
   border: none;
@@ -10382,9 +10429,57 @@ body {
   margin: 0 3px;
 }
 
-/* line 44, ../sass/widgets/_app_window.scss */
+/* line 67, ../sass/widgets/_app_window.scss */
 .x-window-header-text-app_window {
   padding-left: 10px;
+}
+
+/* line 1, ../sass/widgets/_icon_button.scss */
+.notification_button {
+  background: transparent;
+  border-color: transparent;
+}
+/* line 4, ../sass/widgets/_icon_button.scss */
+.notification_button:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+/* line 8, ../sass/widgets/_icon_button.scss */
+.notification_button span, .notification_button button {
+  position: absolute;
+}
+/* line 11, ../sass/widgets/_icon_button.scss */
+.notification_button span {
+  background: url("/theme/images/icons/small/warning_inactive.png");
+  width: 16px;
+  height: 16px;
+  display: block;
+  top: 2px !important;
+  left: 2px !important;
+}
+/* line 19, ../sass/widgets/_icon_button.scss */
+.notification_button button {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: transparent;
+}
+/* line 27, ../sass/widgets/_icon_button.scss */
+.notification_button.active span {
+  background: url("/theme/images/icons/small/warning_active.png");
+}
+/* line 30, ../sass/widgets/_icon_button.scss */
+.notification_button.active:hover {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(50%, rgba(0, 0, 0, 0.1)), color-stop(50%, rgba(0, 0, 0, 0.2)), color-stop(100%, rgba(0, 0, 0, 0.2)));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2));
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2));
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2));
 }
 
 /* line 5, ../sass/_icons.scss */
@@ -10430,6 +10525,16 @@ body {
 /* line 37, ../sass/_icons.scss */
 .icon_home {
   background: url("/theme/images/icons/large/home.png");
+}
+
+/* line 41, ../sass/_icons.scss */
+.icon_active_warning {
+  background: url("/theme/images/icons/small/warning_active.png");
+}
+
+/* line 45, ../sass/_icons.scss */
+.icon_inactive_warning {
+  background: url("/theme/images/icons/small/warning_inactive.png");
 }
 
 /* line 1, ../sass/_other.scss */
@@ -10542,4 +10647,81 @@ body {
 /* line 80, ../sass/_other.scss */
 .new_message_row .x-grid-cell-inner {
   font-weight: bold !important;
+}
+
+/* line 90, ../sass/_other.scss */
+.x-grid-header-ct.x-grid-header-ct-hidden {
+  overflow: hidden !important;
+}
+
+/* line 95, ../sass/_other.scss */
+.chat_inputs {
+  background: #fff;
+}
+
+/* line 100, ../sass/_other.scss */
+.notification_win {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}
+/* line 102, ../sass/_other.scss */
+.notification_win:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* line 108, ../sass/_other.scss */
+.x-accordion-hd {
+  background-color: #444444 !important;
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.8) 50%) !important;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(50%, white), color-stop(50%, rgba(255, 255, 255, 0.9))) !important;
+}
+
+/* line 115, ../sass/_other.scss */
+.chat_input textarea {
+  border: 1px solid #fff !important;
+  background-color: #eaeaea;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
+  background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
+  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* line 123, ../sass/_other.scss */
+.white {
+  background: #fff;
+}
+
+/* line 127, ../sass/_other.scss */
+.chat_item {
+  font-size: 12px;
+  padding: 3px 10px;
+}
+/* line 130, ../sass/_other.scss */
+.chat_item div {
+  float: left;
+}
+/* line 133, ../sass/_other.scss */
+.chat_item .sender {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+/* line 139, ../sass/_other.scss */
+.channel_item {
+  margin: 2px 5px;
+  padding: 2px;
+}
+/* line 142, ../sass/_other.scss */
+.channel_item:hover, .channel_item.selected {
+  background-color: #444444;
+  color: #fff;
 }

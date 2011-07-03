@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  include FayeBroadcaster
 
   field :email
   field :superuser, :type => Boolean, :default => false
@@ -13,8 +14,8 @@ class User
 
   references_many :managed_channels, :class_name => "Channel", :foreign_key => :owner_id, :inverse_of => :owner, :autosave => true, :validate => false
 
-  references_many :received_messages, :foreign_key => "to", :inverse_of => :user, :class_name => "Message"
-  references_many :sent_messages, :foreign_key => "from", :inverse_of => :user, :class_name => "Message"
+  references_many :received_messages, :foreign_key => "to", :inverse_of => :user, :class_name => "Message", :default_order => :created_at.desc
+  references_many :sent_messages, :foreign_key => "from", :inverse_of => :user, :class_name => "Message", :default_order => :created_at.desc
 
 
   def self.find(*args)
@@ -52,16 +53,25 @@ class User
   end
 
   def subscribe_to_channel(channel)
-    subscribed_channels_ids << channel.id unless subscribed_channels_ids.include?(channel.id)
-    save
+    if !subscribed_channels_ids.include?(channel.id)
+      subscribed_channels_ids << channel.id
+      channel.inc(:subscribers_count, 1)
+      return save
+    end
+    false
   end
 
   def channels
     subscribed_channels + managed_channels
   end
 
-  def admin_settings
-    {ws_channel: group.ws_channel, ws_url: "http://localhost:9292/faye", ws_id: self.id, email: self.email }
+  def pending_channels
+    Channel.where("channel_join_requests.user_id" => id)
   end
+
+  def admin_settings
+    {ws_url: FayeBroadcaster::ENDPOINT, channel: self.group.channel.id, id: self.id, email: self.email }
+  end
+
 
 end

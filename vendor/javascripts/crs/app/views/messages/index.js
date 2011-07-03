@@ -1,6 +1,7 @@
 Ext.define("Crs.app.views.messages.Index",{
     extend:"Ext.Panel",
     requires:["Crs.app.data.stores.Message"],
+    plugins:["event_broadcaster"],
     mixins:{
         base: "Fwk.app.views.Base"
     },
@@ -89,6 +90,10 @@ Ext.define("Crs.app.views.messages.Index",{
                 details.hide()
                 details.body.update("")
             }
+        })
+
+        self.subscribe("new_message", function(){
+            self.store.load()
         })
     },
 

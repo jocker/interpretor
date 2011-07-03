@@ -87,7 +87,7 @@ Ext.require("Crs.lib.plugins.EventBroadcaster",function(){
             }
 
             if(!this._comp.store){
-                Cms.warn("cannot lock store for "+this._comp.pkg.name)
+                Fwk.warn("cannot lock store for "+this._comp.pkg.name)
             }else{
                 (function(){
                     this.mon(this.store, "beforeload", this.lock, this)

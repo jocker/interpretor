@@ -2,9 +2,9 @@
 <script type="text/javascript" language="JavaScript" src="/ext/extensions.js"></script>
 
 <style type="text/css">
-  .slide-layout{
-    position:absolute;
-}
+    .slide-layout{
+        position:absolute;
+    }
 </style>
 
 <script language="javascript" type="text/javascript">
@@ -15,7 +15,7 @@
 
 
 
-    Ext.require(["Fwk.routing.Router", "Crs.app.data.Endpoints","Fwk.lib.direct.Proxy","Crs.app.data.Endpoints"], function() {
+    Ext.require(["Fwk.routing.Router", "Crs.app.data.Endpoints"], function() {
         Fwk.routing.Router.map(function(map) {
             map("main",{instance:"main", controller:"main", action:"index"})
             map("login",{instance:"login", controller:"login", action:"index"})
@@ -23,13 +23,15 @@
 
             map(":instance/:language/new",{controller:"interpretor", action:"index"})
             map(":instance/:language/show/:id",{controller:"interpretor", action:"index"})
+            map(":instance/channels/:channel",{controller:"channels", action:"index"})
             map(":instance/:controller/:action")
 
 
 
             Ext.require("Crs.app.App", function(){
 
-                Crs.app.App.goToLogin()
+                <%= raw app_init %>
+
             })
 
         })
@@ -39,10 +41,10 @@
 
 
 
+    Ext.onReady(function(){
 
 
-
-
+    })
 
 
 </script>

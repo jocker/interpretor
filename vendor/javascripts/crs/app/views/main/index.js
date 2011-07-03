@@ -1,12 +1,5 @@
-Ext.require(["Crs.lib.comp.UserCodeTree","Crs.app.data.stores.CodeLanguage"], function(){
+Ext.require(["Crs.lib.comp.UserCodeTree","Crs.app.data.stores.CodeLanguage","Crs.app.data.stores.Channel","Crs.lib.comp.Chat","Crs.lib.comp.ChannelPanel"], function(){
 
-
-    var SampleCodeTree = Ext.extend(Crs.lib.comp.CodeTreeBase,{
-        initComponent: function(){
-            this.store = new Crs.app.data.stores.SampleCode()
-            SampleCodeTree.superclass.initComponent.call(this)
-        }
-    })
 
     Ext.chart.theme.White = Ext.extend(Ext.chart.theme.Base, {
         constructor: function() {
@@ -65,9 +58,10 @@ Ext.require(["Crs.lib.comp.UserCodeTree","Crs.app.data.stores.CodeLanguage"], fu
     });
 
 
-    store = new Crs.app.data.stores.CodeLanguage()
-
-    store.load()
+    var channel_store = new Crs.app.data.stores.Channel()
+    var code_store = new Crs.app.data.stores.CodeLanguage()
+    channel_store.load()
+    code_store.load()
 
     Ext.define("Crs.app.views.main.Index",{
         extend:"Ext.Container",
@@ -124,23 +118,63 @@ Ext.require(["Crs.lib.comp.UserCodeTree","Crs.app.data.stores.CodeLanguage"], fu
                         items:[new Crs.lib.comp.Clock({
                             height:100,
                             width:100,
-                            flex:1,
-                            cls:""
+                            flex:1
                         }),{
-                            title:"Notifications",
+                            title:"Language Popularity",
                             ui:"intro_portlet",
                             flex:3,
                             layout:"fit",
                             items:{
-                                id: 'chartCmp',
+                                xtype: 'chart',
+                                animate: true,
+                                store: code_store,
+                                shadow: true,
+                                insetPadding: 60,
+                                theme: 'Base:gradients',
+                                series: [{
+                                    type: 'pie',
+                                    field: 'uses_count',
+                                    showInLegend: true,
+                                    tips: {
+                                        trackMouse: true,
+                                        width: 140,
+                                        height: 28,
+                                        renderer: function(storeItem, item) {
+                                            //calculate percentage.
+                                            var total = 0;
+                                            code_store.each(function(rec) {
+                                                total += rec.get('uses_count');
+                                            });
+                                            this.setTitle(storeItem.get('name') + ': ' + Math.round(storeItem.get('uses_count') / total * 100) + '%');
+                                        }
+                                    },
+                                    highlight: {
+                                        segment: {
+                                            margin: 20
+                                        }
+                                    },
+                                    label: {
+                                        field: 'name',
+                                        display: 'rotate',
+                                        contrast: true,
+                                        font: '18px Arial'
+                                    }
+                                }]
+                            }
+                        },{
+                            title:"Channel Subscribers",
+                            ui:"intro_portlet",
+                            flex:3,
+                            layout:"fit",
+                            items:{
                                 xtype: 'chart',
                                 animate: true,
                                 shadow: true,
-                                store: store,
+                                store: channel_store,
                                 axes: [{
                                     type: 'Numeric',
                                     position: 'bottom',
-                                    fields: ['uses_count'],
+                                    fields: ['subscribers_count'],
                                     grid: true,
                                     label: {
                                         renderer: function(v){return v}
@@ -228,12 +262,12 @@ Ext.require(["Crs.lib.comp.UserCodeTree","Crs.app.data.stores.CodeLanguage"], fu
                                         width: 140,
                                         height: 28,
                                         renderer: function(storeItem, item) {
-                                            this.setTitle(storeItem.get('name') + ': ' + storeItem.get('uses_count') + ' views');
+                                            this.setTitle(storeItem.get('name') + ': '+ storeItem.get('subscribers_count')+" subscribers");
                                         }
                                     },
                                     label: {
                                         display: 'insideEnd',
-                                        field: 'uses_count',
+                                        field: 'subscribers_count',
                                         renderer: Ext.util.Format.numberRenderer('0'),
                                         orientation: 'horizontal',
                                         color: '#333',
@@ -244,53 +278,79 @@ Ext.require(["Crs.lib.comp.UserCodeTree","Crs.app.data.stores.CodeLanguage"], fu
                                         return barAttr;
                                     },
                                     xField: 'name',
-                                    yField: ['uses_count']
+                                    yField: ['subscribers_count']
                                 }]
                             }
-                        },{
-                            title:"Messages",
+                        }]
+                    },{
+                        // col 2
+                        flex:2,
+                        items:[{
+                            title:"Channels",
                             ui:"intro_portlet",
                             flex:1,
+                            layout:"border",
+                            defaults:{
+                                split:true
+                            },
+                            items:[ new Crs.lib.comp.Chat({
+                                region:"center",
+                                channel: Crs.app.UserInfo.channel
+                            }),new Crs.lib.comp.ChannelPanel({
+                                region:"east",
+                                width:200
+                            })]
+                        }]
+                    },{
+                        // col 3
+                        flex:1,
+                        items:[{
+                            title:"Navigation",
+                            ui:"intro_portlet",
+                            height:70,
+                            layout:{
+                                type:"hbox",
+                                padding:"5",
+                                align : 'stretch'
+                            },
+
+                            defaults:{
+                                margins:"0 5"
+                            },
                             items:[{
+                                flex:1,
                                 xtype:"button",
                                 text:"Messages",
                                 handler: function(){
-                                    Fwk.routing.Router.processRequest("/window_"+Ext.id()+"/messages/index")
+                                    Crs.app.App.goToMessages()
                                 }
                             },{
+                                flex:1,
                                 xtype:"button",
                                 text:"Submissions",
                                 handler: function(){
                                     Fwk.routing.Router.processRequest("/window_"+Ext.id()+"/channel_join_requests/index")
                                 }
                             }]
-                        }]
-                    },{
-                        // col 2
-                        flex:2,
-                        items:[{
-                            title:"Latest news",
-                            ui:"intro_portlet",
-                            flex:1,
-                            layout:"fit"
-                        }]
-                    },{
-                        // col 3
-                        flex:1,
-                        items:[{
+                        },{
                             title:"Sample code",
                             ui:"intro_portlet",
                             flex:1,
                             layout:"fit",
-                            items: new SampleCodeTree()
+                            items: new Crs.lib.comp.CodeTreeBase({
+                                store: new Crs.app.data.stores.SampleCode()
+                            })
                         },{
                             title:"Saved code",
                             ui:"intro_portlet",
                             flex:1,
                             layout:"fit",
-                            items: new Crs.lib.comp.UserCodeTree()
+                            items: new Crs.lib.comp.CodeTreeBase({
+                                store: new Crs.app.data.stores.UserCode()
+                            })
                         }]
                     }]
+                    
                 }]
             })
 

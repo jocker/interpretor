@@ -1,12 +1,12 @@
 class Direct < ActionController::Base
   abstract!
 
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
 
   class << self
     def inherited(child)
       super(child)
-      child.respond_to :direct
+      child.respond_to :direct, :json, :xml
     end
   end
 

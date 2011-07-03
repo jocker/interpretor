@@ -5,9 +5,9 @@ development:
     endpoint: /packages
     root_path: /vendor/js/src/packages
   ssh:
-    host: 172.16.222.128
+    host: 192.168.56.101
     username: chris
-    password: chris
+    password: Pa$$w0rd
 
 
 production:

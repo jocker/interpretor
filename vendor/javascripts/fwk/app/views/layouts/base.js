@@ -112,7 +112,6 @@ Ext.define("Fwk.app.views.layouts.Base",{
                 config.requestOptions = options || {}
 
                 config = self.comp.getController().getViewConfig(view_id, config)
-                console.log(config, self.comp.getController().$className, self.comp.getController().getViewConfig)
                 view = new klass(config)
 
 

@@ -2,7 +2,7 @@
     var runningTasks = 0
 
     Ext.define("Crs.lib.comp.AppStatusBar",{
-        requires:"Crs.lib.comp.ProgressBar",
+        requires:["Crs.lib.comp.ProgressBar","Crs.lib.comp.NotificationButton"],
         extend:"Ext.Container",
         constructor: function(config){
 
@@ -24,6 +24,10 @@
                         width:100,
                         height:16,
                         itemId:"progressBar"
+                    }),
+                    new Crs.lib.comp.NotificationButton({
+                        margins:"0 0 0 10",
+                        id:"notification_button"
                     })
                 ]
             })

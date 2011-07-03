@@ -6,7 +6,6 @@ class Group
 
   field :subdomain, :type => String
   field :name, :type => String
-  field :ws_channel, :type => String
 
   embeds_many :users do
     def superuser
@@ -21,7 +20,6 @@ class Group
 
   accepts_nested_attributes_for :users
 
-  attr_readonly :ws_channel
 
 
   validates_presence_of :name, :subdomain

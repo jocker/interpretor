@@ -2,10 +2,11 @@ Ext.define("Crs.lib.comp.AppWindow",{
     extend:"Ext.Window",
     initComponent: function(){
         var self = this
-        Ext.apply(self,{
+        Ext.applyIf(self,{
             closable: true,
             layout:"fit",
-            modal: !0
+            modal: !0,
+            animateTarget: Ext.getBody()
         })
         self.callParent()
     }

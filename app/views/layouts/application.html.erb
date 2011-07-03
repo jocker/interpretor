@@ -3,7 +3,8 @@
 <head>
   <title>Interpretor</title>
   <%= stylesheet_link_tag    "/theme/css/theme.css" %>
-  <%= javascript_include_tag "/ext/ext-all-debug.js", "/CodeMirror/js/codemirror.js","http://localhost:9292/faye.js", "/raphael.js" %>
+  <%# stylesheet_link_tag    "/ext/resources/css/ext-all.css" %>
+  <%= javascript_include_tag "/ext/ext-all-debug.js", "/CodeMirror/js/codemirror.js","http://faye.interpretor.ro:9292/faye.js", "/raphael.js" %>
   <%= csrf_meta_tags %>
   <style type="text/css">
     .codemirror-iframe {

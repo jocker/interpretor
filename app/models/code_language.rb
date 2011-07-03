@@ -8,6 +8,8 @@ class CodeLanguage
 
   key :key
 
+  has_many :sample_codes
+
 
 
   def compile(code)

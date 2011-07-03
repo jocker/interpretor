@@ -37,3 +37,11 @@
 .icon_home{
     @include language_icon("home")
 }
+
+.icon_active_warning{
+    background: url("/theme/images/icons/small/warning_active.png");
+}
+
+.icon_inactive_warning{
+    background: url("/theme/images/icons/small/warning_inactive.png");
+}

@@ -1,6 +1,6 @@
 Ext.define("Crs.app.data.models.CodeLanguage", {
     extend: "Ext.data.Model",
-    endpoint:"code_language",
+    endpoint:"code_languages",
     fields: [
         {name: 'id', type: 'string'},
         {name: 'name', type: 'string'},

@@ -1,12 +1,14 @@
 class CodesController < Direct
 
   def index
-    respond_with({:success => true, :data => as_tree_data(current_user.user_codes) })
+    #respond_with({:success => true, :data => as_tree_data(current_user.user_codes.first) })
+    respond_with({:success => true, :data => {:value => "useful value"} })
   end
 
   def samples
     respond_with({:success => true, :data => as_tree_data(SampleCode.all) })
   end
+
 
   def create
     

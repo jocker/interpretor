@@ -35,7 +35,6 @@ Ext.define("Crs.app.controllers.Interpretor",{
 
     updateEditorData: function(){
         if(this.editor_data && this.editor_view){
-            console.log(this.editor_data)
             var data = {
                 value: this.editor_data.content
             }

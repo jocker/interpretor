@@ -10,7 +10,7 @@
             }else if( !loading ){
                 loading= !0
                 callbacks.push(callback)
-                Crs.app.data.Endpoints.code_language.index({},function(data, req){
+                Crs.app.data.Endpoints.code_languages.index({},function(data, req){
                     if(req.success){
                         items = data
                         var c
@@ -68,11 +68,11 @@
         load: function(items){
             var self = this
             this.removeAll()
-            Object.keys(items).forEach(function(key){
-                var item = items[key]
+
+            items.forEach(function(item){
                 self.add({
                     text: item.name,
-                    language_id: key,
+                    language_id: item.id,
                     iconCls: item.icon,
                     handler: function(btn){
                         self.showInterpretor(btn.language_id)
@@ -82,7 +82,8 @@
                 })
             })
 
-            self.on("added", function(){ console.log("add") })
+
+
 
             window.setTimeout(function(){
                 self.doLayout()

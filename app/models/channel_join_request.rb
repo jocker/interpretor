@@ -10,11 +10,13 @@ class ChannelJoinRequest
   def accept
     user.subscribe_to_channel channel
     send_message({:subject => "Request Accepted", :content => "Your request for joining channel #{ channel.name } was accepted"})
+    user.broadcast(:submission_accepted, {:channel_name => channel.name})
     self.delete
   end
 
   def reject
     send_message({:subject => "Request Rejected", :content =>  "Your request for joining channel #{ channel.name } was rejected"})
+    user.broadcast(:submission_rejected, {:channel_name => channel.name})
     self.delete
   end
 
@@ -38,6 +40,7 @@ class ChannelJoinRequest
                      :from => user.id,
                      :from_name => user.email
                  })
+    channel.owner.broadcast(:new_submission)
   end
 
   def user

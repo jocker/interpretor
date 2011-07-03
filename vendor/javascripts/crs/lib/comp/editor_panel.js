@@ -1,4 +1,39 @@
-(function(){
+Ext.require(["Crs.lib.comp.CodeTreeBase","Crs.app.data.stores.Code"],function(){
+
+    var CodeTree = Ext.extend(Crs.lib.comp.CodeTreeBase, {
+
+        constructor: function(config){
+            Ext.apply(this, config || {})
+            CodeTree.superclass.constructor.call(this)
+        },
+
+        initComponent: function(){
+            var self = this
+
+
+
+            Ext.apply(self,{
+                store: new Crs.app.data.stores.Code({
+                    listeners:{
+                        beforeload: function(store, operation){
+                            operation.params.id = self.code_language
+                        },
+                        load: function(){
+                            self.expandAll()
+                        }
+                    }
+                })
+            })
+
+            CodeTree.superclass.initComponent.call(this)
+
+        },
+
+        getNodeEditorId: function(){
+            return this.code_language
+        }
+
+    })
 
 
     var EditorTab = Ext.extend(Ext.Panel,{
@@ -135,7 +170,7 @@
 
     Ext.define("Crs.lib.comp.EditorPanel",{
         extend:"Ext.Panel",
-        requires:["Crs.lib.comp.CodeEditor","Crs.lib.comp.LockMask","Crs.lib.comp.UserCodeTree"],
+        requires:["Crs.lib.comp.CodeEditor","Crs.lib.comp.LockMask"],
         initComponent: function() {
 
             Ext.applyIf(this,{
@@ -218,9 +253,10 @@
                     split:true,
                     collapseMode:"none"
                 },
-                items:[new Crs.lib.comp.UserCodeTree({
+                items:[new CodeTree({
                     region:"west",
                     width:250,
+                    code_language: this.language_id,
                     itemId:"explorer"
                 }),{
                     region:"center",
@@ -279,7 +315,7 @@
         compile: function(){
             Crs.lib.comp.LockMask.lock()
             this.getActiveTab(function(tab){
-                Crs.app.data.Endpoints.code_language.compile({code:tab.getValue(), language_id: this.language_id}, function(data){
+                Crs.app.data.Endpoints.code_languages.compile({code:tab.getValue(), language_id: this.language_id}, function(data){
                     Crs.lib.comp.LockMask.unlock()
                     tab.updateResult(data.success, data.result+data.error)
 
@@ -288,7 +324,8 @@
         },
 
         toggleExplorer: function(){
-            this.getExplorer().toggleCollapse(!0)
+            var explorer = this.getExplorer()
+            explorer[explorer.isVisible() ? "hide" : "show"]()
         },
 
         getExplorer: function(){
@@ -305,7 +342,7 @@
 
 
 
-})()
+})
 
 
 

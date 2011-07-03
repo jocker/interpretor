@@ -82,3 +82,66 @@
     }
 
 }
+
+
+
+
+.x-grid-header-ct{
+    &.x-grid-header-ct-hidden{
+    overflow:hidden !important;
+}
+}
+
+.chat_inputs{
+background:#fff;
+
+}
+
+.notification_win{
+    @include opacity(0.5);
+    &:hover{
+        @include opacity(1);
+    }
+}
+
+
+.x-accordion-hd{
+    background-color:$theme_color !important;
+    background-image:-moz-linear-gradient(rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.8) 50%) !important;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(50%, rgba(255, 255, 255, 1)), color-stop(50%, rgba(255, 255, 255, 0.9))) !important;
+}
+
+.chat_input{
+    textarea{
+        border:1px solid #fff !important;
+        background-color:#eaeaea;
+        @include linear-gradient(color-stops(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)));
+        @include box-shadow(rgba(0,0,0,0.3), 0px, 0px, 5px);
+    }
+}
+
+.white{
+    background:#fff;
+}
+
+.chat_item{
+    font-size:12px;
+    padding:3px 10px;
+    div{
+        float:left;
+    }
+    .sender{
+        font-weight:bold;
+        padding-right:10px;
+    }
+}
+
+.channel_item{
+    margin:2px 5px;
+    padding:2px;
+    &:hover, &.selected{
+        background-color:$theme-color;
+        color:#fff;
+    }
+}
+

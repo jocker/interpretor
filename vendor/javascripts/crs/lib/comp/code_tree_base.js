@@ -6,6 +6,7 @@ Ext.define("Crs.lib.comp.CodeTreeBase", {
 
         Ext.apply(self,{
             rootVisible:!1,
+            hideHeaders:true,
             displayField: "name",
             useArrows: true
         })
@@ -25,8 +26,15 @@ Ext.define("Crs.lib.comp.CodeTreeBase", {
             }
             if(!self.menu){
                 var menu_items =[{
-                    text:"Show",
-                    handler: self.showEditPanel.bind(self)
+                    text:"Open in new tab",
+                    handler: function(){
+                        self.showEditPanel()
+                    }
+                },{
+                    text:"Open in new window",
+                    handler: function(){
+                        self.showEditPanel(!0)
+                    }
                 }].concat(self.getMenuConfig())
                 self.menu = new Ext.menu.Menu({
                     items:menu_items
@@ -46,13 +54,16 @@ Ext.define("Crs.lib.comp.CodeTreeBase", {
         return this.getSelectionModel().getSelection()[0]
     },
 
-    showEditPanel: function(){
-        var node = this.getSelectedNode(), self = this
+    showEditPanel: function(inWindow){
+        var self = this, node = self.getSelectedNode()
         if(node){
-            var url = "/{0}/{0}/show/{1}".format(node.parentNode.get("id"), node.get("id") )
+            var url = "/{0}/{1}/show/{2}".format((inWindow ? "window-" : "") + self.getNodeEditorId(node),self.getNodeEditorId(node), node.get("id") )
             console.log(url)
             Fwk.routing.Router.processRequest(url)
         }
+    },
 
+    getNodeEditorId: function(node){
+        return node.parentNode.get("id")
     }
 })

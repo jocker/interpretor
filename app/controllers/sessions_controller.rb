@@ -7,6 +7,9 @@ class SessionsController < Direct
 
   # POST /resource/sign_in
   def create
+
+    warden.logout
+
     params[:user]["subdomain"] = request.subdomain
     success = current_user?
 
@@ -27,14 +30,6 @@ class SessionsController < Direct
   # GET /resource/sign_out
   def destroy
     sign_out(resource_name)
-
-    respond_to do |format|
-      format.any(*navigational_formats) { redirect_to after_sign_out_path_for(resource_name) }
-      format.all do
-        method = "to_#{request_format}"
-        text = {}.respond_to?(method) ? {}.send(method) : ""
-        render :text => text, :status => :ok
-      end
-    end
+    render :json => {:success => true}
   end
 end

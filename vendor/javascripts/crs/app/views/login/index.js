@@ -49,8 +49,9 @@ mask.hide()
                         form.submit({
                             success: function(form, action) {
                                 var app = Crs.app.App
-                                app.initWsConnection(action.result.ws_url, action.result.ws_channel, action.result.ws_id)
+                                app.setUserInfo(action.result)
                                 app.goToHome()
+
                             },
                             failure: function(form, action) {
                                 mask.hide()
@@ -58,7 +59,8 @@ mask.hide()
                         })
                     }
                 }
-            },"->"]
+            }],
+            buttonAlign:"center"
         })
 
         self.callParent(arguments)

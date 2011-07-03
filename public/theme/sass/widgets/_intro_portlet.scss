@@ -33,6 +33,10 @@
         -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0%, rgba(0, 0, 0, 0.3)), color-stop(50%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.3)));
         }
     }
+
+    .x-splitter{
+        @include box-shadow(rgba(0,0,0,1) 0px 0px 3px inset);
+    }
 }
 
 .x-panel-header-intro_portlet-horizontal{

@@ -1,7 +1,7 @@
 Ext.define("Crs.app.App", {
     requires:["Fwk.routing.InstanceManager",
         "Crs.lib.comp.AppTab", "Crs.lib.comp.AppWindow","Crs.lib.layouts.Slide",
-        "Crs.lib.comp.TabsContainer","Crs.lib.comp.AppStatusBar","Fwk.lib.comm.Ws"],
+        "Crs.lib.comp.TabsContainer","Crs.lib.comp.AppStatusBar","Fwk.lib.comm.Ws","Crs.lib.plugins.EventBroadcaster"],
     singleton: !0,
     constructor: function(){
         var self = this
@@ -99,14 +99,19 @@ Ext.define("Crs.app.App", {
             })
             self.window_instances[id] = comp
         }else if( id.match(/^window/) ){
-            comp = new Crs.lib.comp.AppWindow({
+            var config = {
                 width:1000,
                 shadow:false,
                 ui:"app_window",
                 height:400,
                 layout:"fit",
                 title: id
-            })
+            }
+            if( id.match(/notifications$/) ){
+                config.animateTarget = "notification_button"
+            }
+
+            comp = new Crs.lib.comp.AppWindow(config)
             self.window_instances[id] = comp
         }else{
             comp = new Crs.lib.comp.AppTab({
@@ -139,9 +144,34 @@ Ext.define("Crs.app.App", {
                     pack  : 'start'
                 },
                 items:[{
+                    layout: {
+                        type:"hbox",
+                        align : 'middle',
+                        pack  : 'start',
+                        padding:"0 15"
+                    },
                     xtype:"container",
                     height:40,
-                    cls:"app_header"
+                    cls:"app_header",
+                    items:[{
+                        xtype:"component",
+                        flex: 1
+                    },{
+                        xtype:"button",
+                        text: Crs.app.UserInfo.email,
+                        menu:[{
+                            text:"Logout",
+                            handler: function(){
+                                Ext.Ajax.request({
+                                    url: '/sign_out',
+                                    method:"post",
+                                    success: function(response){
+                                        window.location.reload(!0)
+                                    }
+                                });
+                            }
+                        }]
+                    }]
                 },{
                     xtype:"container",
                     flex:1,
@@ -157,7 +187,7 @@ Ext.define("Crs.app.App", {
 
                     })]
                 }, new Crs.lib.comp.AppStatusBar({
-                    
+
                 })],
                 listeners:{
                     afterrender: function(viewport){
@@ -207,14 +237,32 @@ Ext.define("Crs.app.App", {
         Fwk.routing.Router.processRequest("login")
     },
 
-    initWsConnection: function(url, channel, id){
+    goToNotifications: function(){
+        Fwk.routing.Router.processRequest("/window-notifications/notifications/index")
+    },
+
+    goToMessages: function(){
+        Fwk.routing.Router.processRequest("/window/messages/index")
+    },
+
+    goToChannelJoinRequests: function(){
+        Fwk.routing.Router.processRequest("/window/channel_join_requests/index")
+    },
+
+    initWsConnection: function(url, channel_id, id){
         if(!this.ws_connection){
-            this.ws_connection = new Fwk.lib.comm.Ws(url, channel, id)
+            this.ws_connection = new Fwk.lib.comm.Ws(url, channel_id, id)
         }
     },
 
     getWsConnection: function(){
         return this.ws_connection
+    },
+
+    setUserInfo: function(info){
+        Crs.app.UserInfo = info
+        this.initWsConnection(info.ws_url, info.channel, info.id)
+
     }
 
 

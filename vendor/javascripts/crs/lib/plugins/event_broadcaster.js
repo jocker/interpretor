@@ -2,8 +2,10 @@
 
     var facade = new Ext.util.Observable()
 
-    var Plugin = Ext.extend(Object,{
 
+    Ext.define("Crs.lib.plugins.EventBroadcaster", {
+        alias: 'plugin.event_broadcaster',
+        requires:["Crs.events"],
         init: function(obs){
             Ext.apply(obs,{
                 subscribe: facade.on.bind(facade),
@@ -14,10 +16,8 @@
                 }
             })
         }
-
     })
 
-    Ext.ClassManager.set("Crs.lib.plugins.EventBroadcaster", Plugin)
 
 })()
 
